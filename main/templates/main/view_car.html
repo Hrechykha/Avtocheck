@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотреть информацию по авто</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-color: #E5F7F2;
+        }
+    </style>
+
+</head>
+<body>
+    <h2>Информация по авто</h2>
+
+    <form method="GET">
+      <input type="text" class="form-control" placeholder="Search..."id="search_box" name="q">
+        <button type="submit" class="btn-success">Искать</button>
+    </form>
+
+
+    {% if avto_data %}
+
+        {% for el in avto_data %}
+                <p><span class="names">Марка авто: </span>{{ el.manufacturer }}</p>
+                <p><span class="names">VIN номер авто: </span>{{ el.vin }}</p>
+                <p><span class="names">Описание авто: </span>{{ el.description }}</p>
+                <p><span class="names">Дата осмотра авто: </span>{{ el.date }}</p>
+                <br>
+        {% endfor %}
+
+    {% else %}
+        <h5>Записей нет</h5>
+    {% endif %}
+</body>
+</html>

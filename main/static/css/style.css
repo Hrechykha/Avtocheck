@@ -1,0 +1,143 @@
+
+
+body {
+  background-color: #b0c4de; /* Цвет фона веб-страницы */
+  background: url("{% static "images/unnamed.jpeg" %}")
+}
+
+h1 {
+    align="center";
+    color: #24DCA2; /* Цвет заголовка */
+    font-size: 70pt; /* Размер шрифта в пунктах */
+    font-family: 'Fira Sans Condensed', sans-serif; /* Семейство шрифтов */
+    font-weight: normal; /* Нормальное начертание текста  */
+}
+
+h2 {
+    align="right";
+    color: #24DCA2; /* Цвет заголовка */
+    margin-left: 30px;
+    font-size: 50pt; /* Размер шрифта в пунктах */
+    font-family: 'Fira Sans Condensed', sans-serif; /* Семейство шрифтов */
+    font-weight: normal; /* Нормальное начертание текста  */
+}
+
+h5 {
+    align="right";
+    color: #E91F1F; /* Цвет заголовка */
+    margin-left: 30px;
+    font-size: 20pt; /* Размер шрифта в пунктах */
+    font-family: 'Fira Sans Condensed', sans-serif; /* Семейство шрифтов */
+    font-weight: normal; /* Нормальное начертание текста  */
+}
+
+p {
+    font-size: 14pt;
+    text-align: justify; /* Выравнивание по ширине */
+    margin-left: 60px; /* Отступ слева в пикселах */
+    margin-right: 10px; /* Отступ справа в пикселах */
+    padding-left: 10px; /* Отступ от линии слева до текста  */
+}
+
+span {
+    font-size: 16pt;
+    color: #3A7446;
+}
+
+.vertical-menu {
+    margin-top: -30px;
+    margin-right: 20px;
+    width: 400px; /* Set a width if you like */
+    float: right;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 20pt;
+    color: #BAE5D7;
+    text-align: right;
+}
+
+.vertical-menu a {
+    color: #BAE5D7; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+    color: #518474; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
+
+textarea {
+    color: initial;
+    font-size: 20px;
+    display: inline-block;
+    background-color: #DCFAE4;
+    resize: auto;
+    width: 50%;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    font: 400 13.3333px Arial;
+    padding: 2px;
+
+
+    border-radius: 8px;
+}
+
+
+textarea:focus {
+    background-color: #F6F8EA;
+    border: 2px solid #89CB3E;
+}
+
+input, textarea {
+    width: 50%;
+    font-size: 20px;
+    margin: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 100%;
+    border-color: #44D29E;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 8px;
+    background-color: #DCFAE4;
+    font-size: 20px;
+}
+
+input:focus {
+    background-color: #F6F8EA;
+    border: 2px solid #89CB3E;
+}
+
+button {
+    margin-left: 20%;
+    background-color: #129C2E;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 18px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+button:hover {
+    opacity: 1
+
+}
+
+

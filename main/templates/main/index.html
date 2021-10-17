@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background: url("{% static "images/wallpapers-cars-28.jpeg" %}") no-repeat;
+            -moz-background-size: 100%; /* Firefox 3.6+ */
+            -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+            -o-background-size: 100%; /* Opera 9.6+ */
+            background-size: 100%; /* Современные браузеры */
+        }
+    </style>
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1 align="center">Avtocheck</h1>
+    <header>
+        <div class="vertical-menu">
+        <ul>
+            <li><a href="/view_car">Просмотреть инфо по авто</a></li>
+            <li><a href="/add_car">Добавить инфо по авто</a></li>
+            <li><a href="/contacts">Контакты</a></li>
+        </ul>
+      </div>
+    </header>
+</body>
+</html>
