@@ -1,1 +1,1 @@
-web: gunicorn avtocheck.wsgi --log-file -
+web: gunicorn avtocheking.wsgi --log-file -
