@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-color: #E5F7F2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Вход на сайт</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Логин" style="margin-left: 5%">
+        <input type="password" name="password" placeholder="Пароль" style="margin-left: 5%"><br><br>
+        <button type="submit" class="btn-success">Войти</button>
+
+        <span class="error">{{ error }}</span>
+    </form>
+
+</body>
+</html>

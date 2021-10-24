@@ -1,5 +1,3 @@
-
-
 body {
   background-color: #b0c4de; /* Цвет фона веб-страницы */
   background: url("{% static "images/unnamed.jpeg" %}")
@@ -15,6 +13,7 @@ h1 {
 
 h2 {
     align="right";
+    margin-left: 5% !important;
     color: #24DCA2; /* Цвет заголовка */
     margin-left: 30px;
     font-size: 50pt; /* Размер шрифта в пунктах */
@@ -39,9 +38,44 @@ p {
     padding-left: 10px; /* Отступ от линии слева до текста  */
 }
 
+p.about {
+    font-size: 22pt;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    width: 1000px;
+    text-align: justify; /* Выравнивание по ширине */
+    margin-left: 20px; /* Отступ слева в пикселах */
+    margin-right: 10px; /* Отступ справа в пикселах */
+    padding-left: 10px; /* Отступ от линии слева до текста  */
+}
+
+p.contacts {
+    font-size: 16pt;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    width: 1000px;
+    text-align: justify; /* Выравнивание по ширине */
+    margin-left: 50px; /* Отступ слева в пикселах */
+}
+
+a.about {
+    text-decoration: none;
+}
+
 span {
     font-size: 16pt;
-    color: #3A7446;
+    color: #6ACBBF;
+}
+
+span.helptext{
+    margin-left: 10px;
+    display:block;
+    white-space: pre;
+    font-size: 12pt;
+    color: #6ACBBF;
+
+}
+span.error {
+    font-size: 16pt;
+    color: #F63838;
 }
 
 .vertical-menu {
@@ -75,6 +109,13 @@ li {
     list-style-type: none; /* Убираем маркеры */
 }
 
+label {
+    font-size: 25px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    width: 400px; /* Ширина содержимого */
+    padding: 10px; /* Поля вокруг текста */
+}
+
 textarea {
     color: initial;
     font-size: 20px;
@@ -87,8 +128,6 @@ textarea {
     overflow-wrap: break-word;
     font: 400 13.3333px Arial;
     padding: 2px;
-
-
     border-radius: 8px;
 }
 
@@ -119,7 +158,7 @@ input:focus {
 }
 
 button {
-    margin-left: 20%;
+    margin-left: 6% !important;
     background-color: #129C2E;
     border: none;
     color: white;
@@ -140,4 +179,9 @@ button:hover {
 
 }
 
-
+p.messages {
+    font-size: 20px;
+    margin: 10px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    color: #319139;
+}

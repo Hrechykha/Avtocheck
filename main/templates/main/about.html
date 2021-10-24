@@ -1,11 +1,28 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About us</title>
+    <title>О нас</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-color: #E5F7F2;
+        }
+    </style>
+
 </head>
 <body>
-    <h1>About us</h1>
-    <p>Text about us...</p>
-</body>
+    <h2>О проекте</h2>
+    <p class="about">Приложение Avtocheck создано для того, чтобы пользователи, которые осматривают автомобили,
+        могли загружать свои отчёты в единую база данных просмотренных б/у авто. А потенциальные покупатели
+        автомобилей могли просмотреть данную информацию.</p>
+    <p class="about">Вы можете <a class="about" href="/view_car">просмотреть информацию по автомобилям</a> или
+        <a class="about" href="/add_car">добавить информацию по автомобилю</a>.</p>
+
+
+
+
+
 </html>

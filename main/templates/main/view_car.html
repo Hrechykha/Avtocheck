@@ -16,12 +16,6 @@
 <body>
     <h2>Информация по авто</h2>
 
-    <form method="GET">
-      <input type="text" class="form-control" placeholder="Search..."id="search_box" name="q">
-        <button type="submit" class="btn-success">Искать</button>
-    </form>
-
-
     {% if avto_data %}
 
         {% for el in avto_data %}

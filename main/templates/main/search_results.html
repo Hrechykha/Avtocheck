@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    <ul>
+        {% for el in object_list %}
+            <li>
+                <p><span class="names">Марка авто: </span>{{ el.manufacturer }}</p>
+                <p><span class="names">VIN номер авто: </span>{{ el.vin }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

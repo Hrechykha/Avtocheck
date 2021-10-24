@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Добавить информацию по авто</title>
+    <title>Регистрация</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
@@ -13,16 +13,11 @@
     </style>
 </head>
 <body>
-    <h2>Добавить информацию по авто</h2>
+    <h2>Регистрация нового пользователя</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.manufacturer }} <br>
-        {{ form.vin }} <br>
-        {{ form.description }} <br>
-        {{ form.date }} <br><br>
-
-
-        <button type="submit" class="btn-success">Добавить</button>
+        {{ form.as_p }}<br>
+        <button type="submit">Отправить</button>
         <span class="error">{{ error }}</span>
     </form>
     {% if messages %}
