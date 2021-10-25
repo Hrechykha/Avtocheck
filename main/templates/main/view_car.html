@@ -23,8 +23,10 @@
                 <p><span class="names">VIN номер авто: </span>{{ el.vin }}</p>
                 <p><span class="names">Описание авто: </span>{{ el.description }}</p>
                 <p><span class="names">Дата осмотра авто: </span>{{ el.date }}</p>
-                <p><span class="names">Фотоография авто: </span><img src="{{ el.image.url }}" alt="img"/></p>
-                <br>
+                <p><span class="names">Фотоография авто: </span>
+                    <div class="image" style="margin-left: 65px">
+                        <img src="{{ el.image.url }}" alt="img" width="25%" height="18%"/></div></p>
+                <br><br>
         {% endfor %}
 
     {% else %}

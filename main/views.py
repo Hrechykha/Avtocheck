@@ -20,9 +20,7 @@ def add_car(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Данные по авто успешно добавлены.')
-            return redirect('success_adding_car')
-            time.sleep(5)
-            return redirect('/')
+            return redirect('/success_adding_car')
         else:
             error = 'Форма не верно заполнена'
 

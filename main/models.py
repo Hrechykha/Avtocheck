@@ -8,7 +8,7 @@ class Avto(models.Model):
     date = models.TextField('Дата осмотра автомобиля')
     #title = models.CharField('Заголовок фотографии', max_length=200)
     image = models.ImageField('Фотография', upload_to='images',
-                              blank = True, help_text = 'Прикрепите изображения (необязательно)')
+                              blank = True, help_text = 'Прикрепите изображения (необязательно)', default='images/1.png')
 
 
     def __str__(self): #вывод на экран объект класса?
