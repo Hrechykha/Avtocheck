@@ -1,19 +1,40 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Поиск по VIN номеру</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
 </head>
 <body>
-    <h1>Search Results</h1>
+    <h2>Поиск автомобиля по VIN номеру</h2>
 
-    <ul>
-        {% for el in object_list %}
-            <li>
-                <p><span class="names">Марка авто: </span>{{ el.manufacturer }}</p>
-                <p><span class="names">VIN номер авто: </span>{{ el.vin }}</p>
-            </li>
+    <form method="GET">
+        <input type="text" id="vin_search" type="text" name="search" maxlength="15"
+               placeholder="Введите VIN номер автомобиля" style="margin-left: 50px" required><br><br>
+        <button type="submit" class="search">Найти</button>
+    </form>
+    <br/><br/>
+
+    {% if avtos %}
+
+        {% for el in avtos %}
+
+            <p><span class="names">Марка авто: </span>{{ el.manufacturer }}</p>
+            <p><span class="names">VIN номер авто: </span>{{ el.vin }}</p>
+            <p><span class="names">Описание авто: </span>{{ el.description }}</p>
+            <p><span class="names">Дата осмотра авто: </span>{{ el.date }}</p>
+            <p><span class="names">Фотоография авто: </span><img src="{{ el.image.url }}" alt="img"/></p>
+            <br>
+
         {% endfor %}
-    </ul>
+
+    {% else %}
+        <h5 style="margin-left: 50px">Записей нет</h5>
+    {% endif %}
+
 </body>
 </html>

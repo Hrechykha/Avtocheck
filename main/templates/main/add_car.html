@@ -14,23 +14,25 @@
 </head>
 <body>
     <h2>Добавить информацию по авто</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data" style="margin-left: 40px">
         {% csrf_token %}
         {{ form.manufacturer }} <br>
         {{ form.vin }} <br>
         {{ form.description }} <br>
-        {{ form.date }} <br><br>
-
+        {{ form.date }} <br>
+        {{ form.image }} <br><br>
 
         <button type="submit" class="btn-success">Добавить</button>
         <span class="error">{{ error }}</span>
     </form>
+
     {% if messages %}
-    <p class="messages">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </p>
+        <p class="messages">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </p>
     {% endif %}
+
 </body>
 </html>

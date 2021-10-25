@@ -1,14 +1,14 @@
 from .models import Avto
-from django.forms import ModelForm, TextInput, Textarea
+from django.forms import ModelForm, TextInput, Textarea, ImageField
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
+
 class AvtoForm(ModelForm):
     class Meta:
         model = Avto
-        fields = ["manufacturer", "vin", "description", "date"]
-        manufacturer = forms.CharField(label="Имя")
+        fields = ["manufacturer", "vin", "description", "date", "image"]
         labels = {"manufacturer": 'Введите текст', "vin": 'Выберите группу'}
         help_text = {'manufacturer': 'Любую абракадабру',
                      'vin': 'Из уже существующих'}
@@ -28,7 +28,7 @@ class AvtoForm(ModelForm):
             "date": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Ведите дату осмотра автомобиля'
-            })
+            }),
         }
 
 
@@ -68,3 +68,13 @@ class MyRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+
+class SearchAvto(ModelForm):
+    vin_search = forms.CharField(
+        label=('VIN номер:'),
+        max_length=15,
+        widget=forms.TextInput(attrs={"placeholder": "Введите VIN номер автомобиля"}),
+        required=True,
+        error_messages={'required': 'Введите VIN номер автомобиля'}
+    )

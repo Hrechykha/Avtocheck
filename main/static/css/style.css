@@ -1,5 +1,5 @@
 body {
-  background-color: #b0c4de; /* Цвет фона веб-страницы */
+  background-color: #E5F7F2; /* Цвет фона веб-страницы */
   background: url("{% static "images/unnamed.jpeg" %}")
 }
 
@@ -174,9 +174,12 @@ button {
     border-radius: 8px;
 }
 
+button.search {
+    margin-left: 630px !important;
+}
+
 button:hover {
     opacity: 1
-
 }
 
 p.messages {
@@ -184,4 +187,24 @@ p.messages {
     margin: 10px;
     font-family: 'Fira Sans Condensed', sans-serif;
     color: #319139;
+}
+
+p.success {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 28px;
+    color: #319139;
+    text-align: center
+    align: center;
+    width: 800px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+}
+
+img {
+    margin-top: 10px;
+    display: block;
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотреть информацию по авто</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-color: #E5F7F2;
+        }
+    </style>
+
+</head>
+<body>
+    <p class="success">Данные по авто успешно добавлены. Сейчас вы будете перенаправлены на главную страницу.
+        Вможете <a href="/view_car">просмотреть данные по автомобилям</a> или <a href="/add_car">добавить еще информацию</a>.</p>
+
+</body>
+</html>
