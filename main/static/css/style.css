@@ -1,5 +1,5 @@
 body {
-  background-color: #E5F7F2; /* Цвет фона веб-страницы */
+  background-color: #CED0D0; /* Цвет фона веб-страницы */
   background: url("{% static "images/unnamed.jpeg" %}")
 }
 
@@ -14,7 +14,7 @@ h1 {
 h2 {
     align="right";
     margin-left: 5% !important;
-    color: #24DCA2; /* Цвет заголовка */
+    color: #595F5E; /* Цвет заголовка */
     margin-left: 30px;
     font-size: 50pt; /* Размер шрифта в пунктах */
     font-family: 'Fira Sans Condensed', sans-serif; /* Семейство шрифтов */
@@ -62,7 +62,7 @@ a.about {
 
 span {
     font-size: 16pt;
-    color: #6ACBBF;
+    color: #588378;
 }
 
 span.helptext{
