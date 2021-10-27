@@ -39,6 +39,7 @@ def sign_up(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Пользователь успешно зарегистрирован.')
+            return redirect('/success_sign_up')
         else:
             error = 'Форма не верно заполнена'
 
@@ -71,3 +72,6 @@ def search(request):
 
 def success_adding_car(request):
     return render(request, 'main/success_adding_car.html')
+
+def login(request):
+    return render(request, 'main/login.html')
