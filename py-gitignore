@@ -13,9 +13,13 @@ __pycache__/
 
 db.sqlite3
 /db/*.sqlite3
-
+/media
+/static
 settings.py
 
+.DS_Store
+
+**/migrations
 
 #/tmp
 #config/secrets.yml
@@ -48,3 +52,12 @@ share/python-wheels/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
