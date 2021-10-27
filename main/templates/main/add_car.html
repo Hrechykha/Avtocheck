@@ -22,28 +22,31 @@
 
         </ul>
     </nav>
+    {% if user.is_authenticated %}
+        <h2 style="margin-top: 20px; margin-bottom: 15px">Добавить информацию по авто</h2>
 
+        <form method="post" enctype="multipart/form-data" style="margin-left: 60px;">
+            {% csrf_token %}
+            {{ form.manufacturer }} <br>
+            {{ form.vin }} <br>
+            {{ form.description }} <br>
+            <input class="date" type="date" id="date" name="date" placeholder="Введите дату осмотра автомобиля" >
+            {{ form.image }} <br><br>
 
-    <h2>Добавить информацию по авто</h2>
-    <form method="post" enctype="multipart/form-data" style="margin-left: 40px">
-        {% csrf_token %}
-        {{ form.manufacturer }} <br>
-        {{ form.vin }} <br>
-        {{ form.description }} <br>
-        {{ form.date }} <br>
-        {{ form.image }} <br><br>
+            <button type="submit" class="btn-success">Добавить</button>
+            <span class="error">{{ error }}</span>
+        </form>
 
-        <button type="submit" class="btn-success">Добавить</button>
-        <span class="error">{{ error }}</span>
-    </form>
-
-    {% if messages %}
-        <p class="messages">
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        </p>
+        {% if messages %}
+            <p class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </p>
+        {% endif %}
+    {% else %}
+        <br><p class="error"> Вы не можете добавлять информацию по автомобилям,
+        пока не <a href="/sign_in">войдёте в систему</a>.</p>
     {% endif %}
-
 </body>
 </html>

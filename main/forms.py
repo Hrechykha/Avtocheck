@@ -1,5 +1,5 @@
 from .models import Avto
-from django.forms import ModelForm, TextInput, Textarea, ImageField
+from django.forms import ModelForm, TextInput, Textarea, DateField, ImageField
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -24,10 +24,6 @@ class AvtoForm(ModelForm):
             "description": Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Ведите описание'
-            }),
-            "date": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Ведите дату осмотра автомобиля'
             }),
         }
 

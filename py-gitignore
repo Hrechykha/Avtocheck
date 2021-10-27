@@ -22,7 +22,7 @@ settings.py
 .DS_Store
 
 
-#/tmp
+/tmp
 #config/secrets.yml
 
 # Distribution / packaging

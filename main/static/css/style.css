@@ -84,8 +84,10 @@ span.helptext{
     color: #588378;
 
 }
-span.error {
+
+.error {
     font-size: 16pt;
+    font-family: 'Fira Sans Condensed', sans-serif;
     color: #F63838;
 }
 
@@ -101,18 +103,18 @@ span.error {
 }
 
 .vertical-menu a {
-    color: #BAE5D7; /* Black text color */
+    color: #BAE5D7;
     display: block; /* Make the links appear below each other */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove underline from links */
 }
 
 .vertical-menu a:hover {
-    color: #518474; /* Dark grey background on mouse-over */
+    color: #518474;
 }
 
 .vertical-menu a.active {
-    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    background-color: #4CAF50;
     color: white;
 }
 
@@ -142,7 +144,6 @@ textarea {
     border-radius: 8px;
 }
 
-
 textarea:focus {
     background-color: #F6F8EA;
     border: 2px solid #89CB3E;
@@ -166,6 +167,10 @@ input, textarea {
 input:focus {
     background-color: #F6F8EA;
     border: 2px solid #89CB3E;
+}
+
+input.date {
+    color: #6D7170;
 }
 
 button {

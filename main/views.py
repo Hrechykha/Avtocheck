@@ -85,7 +85,6 @@ def success_sign_up(request):
 
 def sign_in(request):
     if request.method == 'POST':
-
         username = request.POST['username']
         password = request.POST['password1']
         user = authenticate(username=username, password=password)
@@ -121,4 +120,4 @@ def login_request(request):
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.")
-	return redirect('/index.html')
+	return redirect('/')
