@@ -8,15 +8,29 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h2>Вход на сайт</h2>
-    <form method="post">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Логин" style="margin-left: 5%">
-        <input type="password" name="password" placeholder="Пароль" style="margin-left: 5%"><br><br>
-        <button type="submit" class="btn-success">Войти</button>
+    <nav>
+        <ul class="navigation">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/view_car">Просмотреть инфо по авто</a></li>
+            <li><a href="/search_results">Поиск по VIN</a></li>
+            {% if user.is_authenticated %}
+                <span class="logged">
+                    <li class="username" align="right">{{ user.get_username }} &nbsp|</li>
+                    <li class="logout"><a href="/logout">Выйти</a></li>
+                </span>
+            {% endif %}
 
-        <span class="error">{{ error }}</span>
+        </ul>
+    </nav>
+    <h2>Вход на сайт</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ login_form.as_p }}
+        <br>
+        <button class="btn btn-primary" type="submit">Войти</button>
     </form>
+    <br><br>
+    <p class="login">Еще не зарегистрированы? <a href="/sign_up">Зарегистрируйтесь</a>.</p>
 
 </body>
 </html>

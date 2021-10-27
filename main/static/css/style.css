@@ -19,6 +19,7 @@ h2 {
     font-size: 50pt; /* Размер шрифта в пунктах */
     font-family: 'Fira Sans Condensed', sans-serif; /* Семейство шрифтов */
     font-weight: normal; /* Нормальное начертание текста  */
+    text-shadow: 0 0 20px #B9F7E7;
 }
 
 h5 {
@@ -39,16 +40,26 @@ p {
 }
 
 p.about {
+    color: #2E6756;
     font-size: 22pt;
     font-family: 'Fira Sans Condensed', sans-serif;
     width: 1000px;
     text-align: justify; /* Выравнивание по ширине */
-    margin-left: 20px; /* Отступ слева в пикселах */
+    margin-left: 40px; /* Отступ слева в пикселах */
     margin-right: 10px; /* Отступ справа в пикселах */
     padding-left: 10px; /* Отступ от линии слева до текста  */
 }
 
 p.contacts {
+    font-size: 16pt;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    width: 1000px;
+    text-align: justify; /* Выравнивание по ширине */
+    margin-left: 50px; /* Отступ слева в пикселах */
+}
+
+p.login {
+    color: #2E6756;
     font-size: 16pt;
     font-family: 'Fira Sans Condensed', sans-serif;
     width: 1000px;
@@ -204,28 +215,68 @@ p.success {
     transform: translate(-50%, -50%) }
 }
 
-ul.header {
-    font-size: 14px;
-    font-family: 'Fira Sans Condensed', sans-serif;
-    list-style: none; /*убираем маркеры списка*/
-    margin: 0; /*убираем отступы*/
-    padding-left: 0; /*убираем отступы*/
+nav {
+    position: relative;
+    background: #C6E6DD;
+    box-shadow: inset 0 0 10px #ccc;
+    padding: 20px;
+    margin: 0;
 }
 
-.header li {
+nav {
+    position: relative;
+    background: #C6E6DD;
+    box-shadow: inset 0 0 10px #ccc;
+    padding: 20px;
+    text-shadow: 0 0 20px #F6F3B2;
+}
+
+.navigation ul {
+    font-size: 20px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    list-style: none; /*убираем маркеры списка*/
+}
+
+.navigation li {
+    width: 100%;
     display: inline;
     font-size: 20px;
     font-family: 'Fira Sans Condensed', sans-serif;
-    margin-left: 40px;
+    padding: 10px;
+    margin: 5px;
 }
 
-.header li a {
-    color: #fff;
+.navigation li a {
+    color: #545A58;
+    text-decoration: none;
     padding: 10px;
-    text-decoration: none;
 }
-.header li a:hover {
+
+span.logged {
+    margin: auto;
+    display: inline-block;
+    float: right;
+
+    top: 50%;
+}
+
+.navigation li.username {
+
+    font-size: 30px;
+}
+
+.navigation li.logout {
+    font-size: 20px;
+    right: 0px;
+    margin: -15px auto;
+}
+
+.navigation li a:hover {
     color: #326456;
-    background: #D0F8ED;
+    background: #EAF7D9;
     text-decoration: none;
+    padding: 10px;
+    box-shadow:  0 0 20px #F6F3B2;
+    border-radius: 8px;
+    outline: none !important
 }

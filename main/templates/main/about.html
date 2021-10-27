@@ -10,12 +10,31 @@
 
 </head>
 <body>
+    <nav>
+        <ul class="navigation">
+            <li><a href="/">Главная</a></li>
+             <li><a href="/view_car">Просмотреть инфо по авто</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="/add_car">Добавить инфо по авто</a></li>
+            {% endif %}
+            <li><a href="/search_results">Поиск по VIN</a></li>
+            {% if user.is_authenticated %}
+                <span class="logged">
+                    <li class="username" align="right">{{ user.get_username }} &nbsp|</li>
+                    <li class="logout"><a href="/logout">Выйти</a></li>
+                </span>
+            {% endif %}
+
+        </ul>
+    </nav>
+
     <h2>О проекте</h2>
     <p class="about">Приложение Avtocheck создано для того, чтобы пользователи, которые осматривают автомобили,
         могли загружать свои отчёты в единую база данных просмотренных б/у авто. А потенциальные покупатели
         автомобилей могли просмотреть данную информацию.</p>
-    <p class="about">Вы можете <a class="about" href="/view_car">просмотреть информацию по автомобилям</a> или
-        <a class="about" href="/add_car">добавить информацию по автомобилю</a>.</p>
+    <p class="about">Вы можете <a class="about" href="/view_car">просмотреть информацию по автомобилям</a>.
+        После авторизации или вы сможете
+        <a class="about" href="/sign_in">добавить информацию по автомобилю</a>.</p>
 
 
 

@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <nav>
+        <ul class="navigation">
+            <li><a href="/">Главная</a></li>
+             <li><a href="/view_car">Просмотреть инфо по авто</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="/add_car">Добавить инфо по авто</a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <span class="logged">
+                    <li class="username" align="right">{{ user.get_username }} &nbsp|</li>
+                    <li class="logout"><a href="/logout">Выйти</a></li>
+                </span>
+            {% endif %}
+
+        </ul>
+    </nav>
     <h2>Контакты</h2>
     <p class="contacts">По любым вопросам можно обращаться по номеру <a href="callto:+375291904890">+375291904890</a> или на почту grechiho.vika@gmail.com.</p>
 </html>

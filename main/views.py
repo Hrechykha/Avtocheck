@@ -1,8 +1,10 @@
+from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
-from .forms import AvtoForm, MyRegistrationForm
+from .forms import AvtoForm, MyRegistrationForm, LoginUser
 from .models import Avto
 from django.contrib import messages
-import time
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 
 def index(request):
@@ -42,7 +44,6 @@ def sign_up(request):
             return redirect('/success_sign_up')
         else:
             error = 'Форма не верно заполнена'
-
     form = MyRegistrationForm()
     context = {
         'form': form,
@@ -56,8 +57,14 @@ def contacts(request):
 
 
 def view_car(request):
-    avto = Avto.objects.all()
+    avto = Avto.objects.all().order_by('-date')
+
     return render(request, 'main/view_car.html', {'avto_data': avto})
+
+def display_username(request):
+    if request.user.is_authenticated():
+        username = User.username
+        return username
 
 
 def search(request):
@@ -73,5 +80,45 @@ def search(request):
 def success_adding_car(request):
     return render(request, 'main/success_adding_car.html')
 
-def login(request):
+def success_sign_up(request):
+    return render(request, 'main/success_sign_up.html')
+
+def sign_in(request):
+    if request.method == 'POST':
+
+        username = request.POST['username']
+        password = request.POST['password1']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('main/success_adding_car.html')
+            else:
+                error = 'Имя пользователя или пароль неверные'
+        else:
+            pass
+        # Return an 'invalid login' error message.
     return render(request, 'main/login.html')
+
+def login_request(request):
+	if request.method == "POST":
+		form = LoginUser(request, data=request.POST)
+		if form.is_valid():
+			username = form.cleaned_data.get('username')
+			password = form.cleaned_data.get('password')
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				login(request, user)
+				messages.info(request, f"You are now logged in as {username}.")
+				return redirect('/index.html')
+			else:
+				messages.error(request,"Invalid username or password.")
+		else:
+			messages.error(request,"Invalid username or password.")
+	form = LoginUser()
+	return render(request=request, template_name="main/login.html", context={"login_form":form})
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.")
+	return redirect('/index.html')

@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
-    <ul class="header">
-        <li><a href="/about">О нас</a></li>
-        <li><a href="/view_car">Просмотреть инфо по авто</a></li>
-        <li><a href="/search_results">Поиск по VIN</a></li>
-    </ul>
+    <nav>
+        <ul class="navigation">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/view_car">Просмотреть инфо по авто</a></li>
+            <li><a href="/search_results">Поиск по VIN</a></li>
+        </ul>
+    </nav>
 
     <h2>Регистрация нового пользователя</h2>
     <form method="post">
