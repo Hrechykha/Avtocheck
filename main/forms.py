@@ -1,3 +1,5 @@
+from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
 from .models import Avto
 from django.forms import ModelForm, TextInput, Textarea, DateField, ImageField
 from django import forms
@@ -69,11 +71,20 @@ class MyRegistrationForm(UserCreationForm):
 class SearchAvto(AuthenticationForm):
     vin_search = forms.CharField(
         label=('VIN номер:'),
-        max_length=15,
+        max_length=17,
+        validators=[MinLengthValidator(17)],
         widget=forms.TextInput(attrs={"placeholder": "Введите VIN номер автомобиля"}),
         required=True,
         error_messages={'required': 'Введите VIN номер автомобиля'}
     )
+
+    def clean_vin(self):
+        cleaned_data = super(SearchAvto, self).clean()
+        vin = cleaned_data.get('vin_search')
+        # service = cleaned_data.get('service')
+        # message = cleaned_data.get('message')
+        if len(vin) < 17:
+            raise ValidationError('VIN должен быть не менее 17 символов.')
 
 class LoginUser(AuthenticationForm):
     username = forms.CharField(

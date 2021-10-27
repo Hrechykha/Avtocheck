@@ -29,8 +29,17 @@
         <br>
         <button class="btn btn-primary" type="submit">Войти</button>
     </form>
+
+    {% if messages %}
+        <p class="error">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </p>
+    {% endif %}
+
     <br><br>
-    <p class="login">Еще не зарегистрированы? <a href="/sign_up">Зарегистрируйтесь</a>.</p>
+    <p class="login" style="margin-left: 70px">Еще не зарегистрированы? <a href="/sign_up">Зарегистрируйтесь</a>.</p>
 
 </body>
 </html>

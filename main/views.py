@@ -61,6 +61,7 @@ def view_car(request):
 
     return render(request, 'main/view_car.html', {'avto_data': avto})
 
+
 def display_username(request):
     if request.user.is_authenticated():
         username = User.username
@@ -68,56 +69,42 @@ def display_username(request):
 
 
 def search(request):
-    avtos=None
+    avtos = None
     if request.GET.get('search'):
         search = request.GET.get('search')
         avtos = Avto.objects.filter(vin__exact=search)
-    return render(request, 'main/search_results.html', {
-        'avtos': avtos,
-    })
+    return render(request, 'main/search_results.html', {'avtos': avtos})
 
 
 def success_adding_car(request):
     return render(request, 'main/success_adding_car.html')
 
+
 def success_sign_up(request):
     return render(request, 'main/success_sign_up.html')
 
-def sign_in(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password1']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return redirect('main/success_adding_car.html')
-            else:
-                error = 'Имя пользователя или пароль неверные'
-        else:
-            pass
-        # Return an 'invalid login' error message.
-    return render(request, 'main/login.html')
 
 def login_request(request):
-	if request.method == "POST":
-		form = LoginUser(request, data=request.POST)
-		if form.is_valid():
-			username = form.cleaned_data.get('username')
-			password = form.cleaned_data.get('password')
-			user = authenticate(username=username, password=password)
-			if user is not None:
-				login(request, user)
-				messages.info(request, f"You are now logged in as {username}.")
-				return redirect('/index.html')
-			else:
-				messages.error(request,"Invalid username or password.")
-		else:
-			messages.error(request,"Invalid username or password.")
-	form = LoginUser()
-	return render(request=request, template_name="main/login.html", context={"login_form":form})
+    error = ''
+    if request.method == "POST":
+        form = LoginUser(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('/index.html')
+            else:
+                messages.error(request, "Имя пользователя или пароль неверные.")
+        else:
+            messages.error(request, "Имя пользователя или пароль неверные.")
+    form = LoginUser()
+    context = {"login_form": form}
+    return render(request, 'main/login.html', context)
+
 
 def logout_request(request):
-	logout(request)
-	messages.info(request, "You have successfully logged out.")
-	return redirect('/')
+    logout(request)
+    messages.info(request, "You have successfully logged out.")
+    return redirect('/')
