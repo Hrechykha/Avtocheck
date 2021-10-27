@@ -3,22 +3,22 @@ __pycache__/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
-*$py.class
+#*.py[cod]
+#*$py.class
 
 # C extensions
-*.so
+#*.so
 
 *~
 
-db.sqlite3
-/db/*.sqlite3
+#db.sqlite3
+#/db/*.sqlite3
 
 settings.py
 
 
-/tmp
-config/secrets.yml
+#/tmp
+#config/secrets.yml
 
 # Distribution / packaging
 .Python
