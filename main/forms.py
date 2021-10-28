@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
 from .models import Avto
-from django.forms import ModelForm, TextInput, Textarea, DateField, ImageField
+from django.forms import ModelForm, TextInput, Textarea
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -11,9 +11,7 @@ class AvtoForm(ModelForm):
     class Meta:
         model = Avto
         fields = ["manufacturer", "vin", "description", "date", "image"]
-        labels = {"manufacturer": 'Введите текст', "vin": 'Выберите группу'}
-        help_text = {'manufacturer': 'Любую абракадабру',
-                     'vin': 'Из уже существующих'}
+        labels = {"manufacturer": 'Введите текст', "vin": 'Введите VIN'}
         widgets = {
             "manufacturer": TextInput(attrs={
                 'class': 'form-control',
@@ -81,10 +79,10 @@ class SearchAvto(AuthenticationForm):
     def clean_vin(self):
         cleaned_data = super(SearchAvto, self).clean()
         vin = cleaned_data.get('vin_search')
-        # service = cleaned_data.get('service')
-        # message = cleaned_data.get('message')
+        # manufacturer = cleaned_data.get('manufacturer')
         if len(vin) < 17:
             raise ValidationError('VIN должен быть не менее 17 символов.')
+
 
 class LoginUser(AuthenticationForm):
     username = forms.CharField(

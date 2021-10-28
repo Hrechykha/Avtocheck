@@ -40,7 +40,7 @@ def sign_up(request):
         form = MyRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Пользователь успешно зарегистрирован.')
+            #messages.success(request, 'Пользователь успешно зарегистрирован.')
             return redirect('/success_sign_up')
         else:
             error = 'Форма не верно заполнена'
