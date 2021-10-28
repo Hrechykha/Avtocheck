@@ -34,7 +34,8 @@ class MyRegistrationForm(UserCreationForm):
         max_length=15,
         widget=forms.TextInput(attrs={"placeholder": "Введите имя пользователя"}),
         required=True,
-        error_messages={'required': 'Please enter your name'}
+        error_messages={'required': 'Please enter your name', 'min_length': 'very short entry',
+                        'invalid': 'Improper format'},
     )
 
     email = forms.CharField(
@@ -66,19 +67,20 @@ class MyRegistrationForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
-class SearchAvto(AuthenticationForm):
+class SearchAvto(AvtoForm):
     vin_search = forms.CharField(
         label=('VIN номер:'),
         max_length=17,
         validators=[MinLengthValidator(17)],
         widget=forms.TextInput(attrs={"placeholder": "Введите VIN номер автомобиля"}),
         required=True,
-        error_messages={'required': 'Введите VIN номер автомобиля'}
+        error_messages={'required': 'Введите VIN номер автомобиля'},
+        help_text="Enter a date between now and 4 weeks (default 3)."
     )
 
     def clean_vin(self):
         cleaned_data = super(SearchAvto, self).clean()
-        vin = cleaned_data.get('vin_search')
+        vin = cleaned_data.get(self, 'vin_search')
         # manufacturer = cleaned_data.get('manufacturer')
         if len(vin) < 17:
             raise ValidationError('VIN должен быть не менее 17 символов.')

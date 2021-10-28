@@ -85,7 +85,6 @@ def success_sign_up(request):
 
 
 def login_request(request):
-    error = ''
     if request.method == "POST":
         form = LoginUser(request, data=request.POST)
         if form.is_valid():
