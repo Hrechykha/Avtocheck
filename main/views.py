@@ -94,7 +94,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('/index.html')
+                return redirect('/')
             else:
                 messages.error(request, "Имя пользователя или пароль неверные.")
         else:
