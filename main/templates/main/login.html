@@ -23,37 +23,36 @@
         </ul>
     </nav>
     <h2>Вход на сайт</h2>
-    <form method="POST">
+
+    <form method="POST" style="margin-left: 40px">
+
         {% csrf_token %}
 
         <label for="id_username">Имя пользователя:</label>
         <input type="text" name="username" placeholder="Введите имя пользователя" id="id_username">
+        {{ login_form.username.errors }}
         <br>
+
         <label for="id_password">Пароль:</label>
         <input type="password" name="password" placeholder="Введите пароль" id="id_password">
-        <br>
-            {{ login_form.password.errors }}
-        <br>
-        <br>
+        {{ login_form.password.errors }}
+
+        <br><br>
+
         <button class="btn btn-primary" type="submit">Войти</button>
     </form>
 
-    {% if error_messages %}
+    
+    {% if password.errors or username.errors %}
+        {% if messages %}
             <p class="error">
-                {% for message in error_messages %}
+                {% for message in messages %}
                     {{ message }}
                 {% endfor %}
             </p>
         {% endif %}
-    
-    
-    {% if messages %}
-        <p class="error">
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        </p>
     {% endif %}
+
 
     <br><br>
     <p class="login" style="margin-left: 70px">Еще не зарегистрированы? <a href="/sign_up">Зарегистрируйтесь</a>.</p>

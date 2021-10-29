@@ -91,6 +91,13 @@ span.helptext{
     color: #F63838;
 }
 
+.errorlist {
+    margin-left: 50px;
+    font-size: 12pt;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    color: #F63838;
+}
+
 .vertical-menu {
     margin-top: -30px;
     margin-right: 20px;
@@ -288,4 +295,5 @@ span.logged {
     border-radius: 8px;
     outline: none !important
 }
+
 
