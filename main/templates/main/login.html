@@ -25,7 +25,14 @@
     <h2>Вход на сайт</h2>
     <form method="POST">
         {% csrf_token %}
-        {{ login_form.as_p }}
+
+        <label for="id_username">Имя пользователя:</label>
+        <input type="text" name="username" placeholder="Введите имя пользователя" id="id_username">
+        <br>
+        <label for="id_password">Пароль:</label>
+        <input type="password" name="password" placeholder="Введите пароль" id="id_password">
+        <br>
+        
         <br>
         <button class="btn btn-primary" type="submit">Войти</button>
     </form>
