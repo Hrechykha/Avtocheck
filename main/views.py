@@ -85,6 +85,7 @@ def success_sign_up(request):
 
 
 def login_request(request):
+    form = LoginUser()
     if request.method == "POST":
         form = LoginUser(request, data=request.POST)
         if form.is_valid():
@@ -98,7 +99,6 @@ def login_request(request):
                 messages.error(request, "Имя пользователя или пароль неверные.")
         else:
             messages.error(request, "Имя пользователя или пароль неверные.")
-    form = LoginUser()
     context = {"login_form": form}
     return render(request, 'main/login.html', context)
 
