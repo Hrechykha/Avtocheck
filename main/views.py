@@ -21,7 +21,7 @@ def add_car(request):
         form = AvtoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Данные по авто успешно добавлены.')
+            #messages.success(request, 'Данные по авто успешно добавлены.')
             return redirect('/success_adding_car')
         else:
             error = 'Форма не верно заполнена'
