@@ -97,7 +97,7 @@ class LoginUser(AuthenticationForm):
     password = forms.CharField(
         label=('Пароль:'),
         max_length=15,
-        widget=forms.TextInput(attrs={"placeholder": "Введите пароль"}),
+        widget=forms.PasswordInput(attrs={"placeholder": "Введите пароль"}),
         required=True,
         error_messages={'required': 'Пароль не может быть пустым.'}
     )
