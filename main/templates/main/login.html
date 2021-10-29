@@ -32,7 +32,8 @@
         <label for="id_password">Пароль:</label>
         <input type="password" name="password" placeholder="Введите пароль" id="id_password">
         <br>
-        
+            {{ form.password.errors }}
+        <br>
         <br>
         <button class="btn btn-primary" type="submit">Войти</button>
     </form>
