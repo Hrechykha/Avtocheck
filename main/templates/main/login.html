@@ -37,6 +37,15 @@
         <button class="btn btn-primary" type="submit">Войти</button>
     </form>
 
+    {% if error_messages %}
+            <p class="error">
+                {% for message in error_messages %}
+                    {{ message }}
+                {% endfor %}
+            </p>
+        {% endif %}
+    
+    
     {% if messages %}
         <p class="error">
             {% for message in messages %}
