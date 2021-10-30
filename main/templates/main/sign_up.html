@@ -23,6 +23,15 @@
         {{ form.as_p }}<br>
         <button type="submit">Отправить</button>
         <span class="error">{{ error }}</span>
+
+        {% if form.errors %}
+            <p class="messages">
+                {% for error in errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+        {% endif %}
+
     </form>
     {% if messages %}
     <p class="messages">

@@ -96,6 +96,7 @@ span.helptext{
     font-size: 12pt;
     font-family: 'Fira Sans Condensed', sans-serif;
     color: #F63838;
+    margin: -5px;
 }
 
 .vertical-menu {

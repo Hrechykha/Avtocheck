@@ -11,11 +11,16 @@ class AvtoForm(ModelForm):
     class Meta:
         model = Avto
         fields = ["manufacturer", "vin", "description", "date", "image"]
-        labels = {"manufacturer": 'Введите текст', "vin": 'Введите VIN'}
+        error_messages = {
+            'manufacturer': {'required': 'Пожалуйста, укажите марку и модель автомобиля'},
+            'vin': {'required': 'Пожалуйста, укажите VIN номер автомобиля',
+                    'min_length': 'VIN номер должен состоять из 17 символов', },
+            'date': {'required': 'Пожалуйста, укажите дату осмотра автомобиля'}
+        }
         widgets = {
             "manufacturer": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Ведите марку автомобиля'
+                'placeholder': 'Ведите марку и модель автомобиля'
             }),
             "vin": TextInput(attrs={
                 'class': 'form-control',
@@ -23,7 +28,7 @@ class AvtoForm(ModelForm):
             }),
             "description": Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Ведите описание'
+                'placeholder': 'Ведите описание автомобиля'
             }),
         }
 
@@ -34,8 +39,7 @@ class MyRegistrationForm(UserCreationForm):
         max_length=15,
         widget=forms.TextInput(attrs={"placeholder": "Введите имя пользователя"}),
         required=True,
-        error_messages={'required': 'Please enter your name', 'min_length': 'very short entry',
-                        'invalid': 'Improper format'},
+        error_messages={'required': 'Пожалуйста, укажите имя пользователя'}
     )
 
     email = forms.CharField(
@@ -43,7 +47,7 @@ class MyRegistrationForm(UserCreationForm):
         max_length=30,
         widget=forms.EmailInput(attrs={"placeholder": "Введите электронную почту"}),
         required=True,
-        error_messages={'required': 'Please enter your name'}
+        error_messages={'required': 'Пожалуйста, укажите электронную почту'}
     )
 
     password1 = forms.CharField(
@@ -53,13 +57,15 @@ class MyRegistrationForm(UserCreationForm):
         widget=forms.PasswordInput(attrs={"placeholder": "Введите пароль"}),
         help_text='Пароль должен содержать минимум 8 символов. '
                   'Пароль не должен быть одним из широоко распространённых паролей.',
+        error_messages={'required': 'Пожалуйста, задайте пароль'}
     )
 
     password2 = forms.CharField(
         label=('Повторите пароль:'),
         max_length=15,
         widget=forms.PasswordInput(attrs={"placeholder": "Введите подтверждение пароля"}),
-        required=True
+        required=True,
+        error_messages={'required': 'Пожалуйста, задайте пароль'}
     )
 
     class Meta:
@@ -74,7 +80,8 @@ class SearchAvto(AvtoForm):
         validators=[MinLengthValidator(17)],
         widget=forms.TextInput(attrs={"placeholder": "Введите VIN номер автомобиля"}),
         required=True,
-        error_messages={'required': 'Введите VIN номер автомобиля'},
+        error_messages={'required': 'Пожалуйста, укажите VIN номер автомобиля',
+                        'min_length': 'VIN номер должен состоять из 17 символов'},
         help_text="Enter a date between now and 4 weeks (default 3)."
     )
 
