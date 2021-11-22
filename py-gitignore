@@ -22,7 +22,7 @@ settings.py
 
 **/.DS_Store
 .DS_Store
-
+.idea/
 
 /tmp
 #config/secrets.yml

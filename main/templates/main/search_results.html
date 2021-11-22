@@ -27,8 +27,12 @@
     <h2>Поиск автомобиля по VIN номеру</h2>
 
     <form method="GET">
-        <input type="text" id="vin_search" type="text" name="search" maxlength="17"
-               placeholder="Введите VIN номер автомобиля" style="margin-left: 50px" required><br><br>
+        {% csrf_token %}
+
+        <input type="text" name="vin" placeholder="Введите VIN номер автомобиля" id="vin" maxlength="17" style="margin-left: 60px">
+            {{ avtos.vin.errors }}
+            <br>
+
         <button type="submit" class="search">Найти</button>
     </form>
     <br/><br/>
@@ -41,7 +45,7 @@
             <p><span class="names">VIN номер авто: </span>{{ el.vin }}</p>
             <p><span class="names">Описание авто: </span>{{ el.description }}</p>
             <p><span class="names">Дата осмотра авто: </span>{{ el.date }}</p>
-            <p><span class="names">Фотоография авто: </span>
+            <p><span class="names">Фотография авто: </span>
                     <div class="image" style="margin-left: 65px">
                         <img src="{{ el.image.url }}" alt="img" width="25%" height="18%"/></div></p>
             <br>

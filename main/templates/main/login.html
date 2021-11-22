@@ -29,7 +29,7 @@
         {% csrf_token %}
 
         <label for="id_username">Имя пользователя:</label>
-        <input type="text" name="username" placeholder="Введите имя пользователя" id="id_username">
+        <input type="text" name="username" placeholder="Введите имя пользователя" id="id_username" maxlength="15">
         {{ login_form.username.errors }}
         <br>
 
@@ -43,7 +43,7 @@
     </form>
 
     
-    {% if password.errors or username.errors %}
+    {% if not password.errors and not username.errors %}
         {% if messages %}
             <p class="error">
                 {% for message in messages %}

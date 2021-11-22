@@ -36,7 +36,7 @@ class AvtoForm(ModelForm):
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(
         label=('Имя пользователя:'),
-        max_length=15,
+        max_length=30,
         widget=forms.TextInput(attrs={"placeholder": "Введите имя пользователя"}),
         required=True,
         error_messages={'required': 'Пожалуйста, укажите имя пользователя'}

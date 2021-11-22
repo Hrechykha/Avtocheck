@@ -29,6 +29,18 @@
 
     <h2>Информация по авто</h2>
 
+        <form method="GET">
+        {% csrf_token %}
+
+        <input type="text" name="vin" placeholder="Введите VIN номер автомобиля" id="vin" maxlength="17"
+               style="margin-left: 60px">
+        <button type="submit" class="filter">Отфильтровать</button>
+            {{ avtos.vin.errors }}
+
+        </form>
+        <br><br>
+
+
     {% if avto_data %}
 
         {% for el in avto_data %}

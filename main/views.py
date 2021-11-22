@@ -52,7 +52,11 @@ def contacts(request):
 
 
 def view_car(request):
-    avto = Avto.objects.all().order_by('-date')
+    vin = request.GET.get('vin')
+    if vin:
+        avto = Avto.objects.filter(vin__iexact=vin).order_by('-date')
+    else:
+        avto = Avto.objects.all().order_by('-date')
 
     return render(request, 'main/view_car.html', {'avto_data': avto})
 
