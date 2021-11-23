@@ -15,8 +15,8 @@ urlpatterns = [
     path('success_sign_up', views.success_sign_up),
     path('sign_in', views.login_request),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('logout', views.logout_request)
-
+    path('logout', views.logout_request),
+    path('edit/<vin>/', views.edit),
 ]
 
 if settings.DEBUG: urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -43,19 +43,38 @@
 
     {% if avto_data %}
 
-        {% for el in avto_data %}
-                <p><span class="names">Марка авто: </span>{{ el.manufacturer }}</p>
-                <p><span class="names">VIN номер авто: </span>{{ el.vin }}</p>
-                <p><span class="names">Описание авто: </span>{{ el.description }}</p>
-                <p><span class="names">Дата осмотра авто: </span>{{ el.date }}</p>
-                <p><span class="names">Фотография авто: </span>
-                    <div class="image" style="margin-left: 65px">
-                        <img src="{{ el.image.url }}" alt="img" width="25%" height="18%"/></div></p>
-                <br><br>
-        {% endfor %}
+
+
+    <table class="names">
+                <tr>
+                  <th>Марка авто</th>
+                  <th>VIN номер авто</th>
+                  <th>Описание авто</th>
+                  <th>Дата осмотра авто</th>
+                  <th width="25%">Фотография авто</th>
+                </tr>
+                {% for el in avto_data %}
+                <tr>
+                  <td>{{ el.manufacturer }}</td>
+                  <td>{{ el.vin }}</td>
+                  <td>{{ el.description }}</td>
+                  <td>{{ el.date }}</td>
+                  <td width="70%"><img src="{{ el.image.url }}" alt="img" width="170px" height="100px"/></td>
+                  <td><a href="edit/{{el.vin}}" class="changing">Изменить</a></td>
+
+                </tr>
+                {% endfor %}
+            </table>
+
 
     {% else %}
         <h5>Записей нет</h5>
     {% endif %}
+
+
+
+
+
+
 </body>
 </html>

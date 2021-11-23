@@ -14,7 +14,8 @@ class AvtoForm(ModelForm):
         error_messages = {
             'manufacturer': {'required': 'Пожалуйста, укажите марку и модель автомобиля'},
             'vin': {'required': 'Пожалуйста, укажите VIN номер автомобиля',
-                    'min_length': 'VIN номер должен состоять из 17 символов', },
+                    'min_length': 'VIN номер должен состоять из 17 символов',
+                    'unique': 'VIN номер должен состоять из 17 символов'},
             'date': {'required': 'Пожалуйста, укажите дату осмотра автомобиля'}
         }
         widgets = {
@@ -108,3 +109,9 @@ class LoginUser(AuthenticationForm):
         required=True,
         error_messages={'required': 'Пароль не может быть пустым.'}
     )
+
+class EditAvtoForm(ModelForm):
+    class Meta:
+        model = Avto
+        fields = ["description", "date"]
+        
