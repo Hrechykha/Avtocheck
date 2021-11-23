@@ -93,7 +93,7 @@ def login_request(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('main/view_car.html')
+                return redirect('/')
             else:
                 messages.error(request, "Имя пользователя или пароль неверные.")
         else:
@@ -115,6 +115,6 @@ def edit(request, vin):
         avto.description = request.POST.get("description")
         avto.date = request.POST.get("date")
         avto.save()
-        return redirect('main/view_car.html')
+        return redirect('/')
     else:
         return render(request, "main/edit.html", {"avto": avto})

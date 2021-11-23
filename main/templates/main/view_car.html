@@ -40,41 +40,33 @@
         </form>
         <br><br>
 
-
     {% if avto_data %}
 
-
-
     <table class="names">
-                <tr>
-                  <th>Марка авто</th>
-                  <th>VIN номер авто</th>
-                  <th>Описание авто</th>
-                  <th>Дата осмотра авто</th>
-                  <th width="25%">Фотография авто</th>
-                </tr>
-                {% for el in avto_data %}
-                <tr>
-                  <td>{{ el.manufacturer }}</td>
-                  <td>{{ el.vin }}</td>
-                  <td>{{ el.description }}</td>
-                  <td>{{ el.date }}</td>
-                  <td width="70%"><img src="{{ el.image.url }}" alt="img" width="170px" height="100px"/></td>
-                  <td><a href="edit/{{el.vin}}" class="changing">Изменить</a></td>
-
-                </tr>
-                {% endfor %}
-            </table>
-
+        <tr>
+            <th>Марка авто</th>
+            <th>VIN номер авто</th>
+            <th>Описание авто</th>
+            <th>Дата осмотра авто</th>
+            <th width="25%">Фотография авто</th>
+        </tr>
+        {% for el in avto_data %}
+            <tr>
+                <td>{{ el.manufacturer }}</td>
+                <td>{{ el.vin }}</td>
+                <td>{{ el.description }}</td>
+                <td>{{ el.date }}</td>
+                <td width="70%"><img src="{{ el.image.url }}" alt="img" width="170px" height="100px"/></td>
+                {% if user.is_authenticated %}
+                    <td><a href="edit/{{el.vin}}" class="changing">Изменить</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
 
     {% else %}
-        <h5>Записей нет</h5>
+        <h5>Записей нет...</h5>
     {% endif %}
-
-
-
-
-
 
 </body>
 </html>
