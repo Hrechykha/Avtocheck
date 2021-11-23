@@ -109,9 +109,4 @@ class LoginUser(AuthenticationForm):
         required=True,
         error_messages={'required': 'Пароль не может быть пустым.'}
     )
-
-class EditAvtoForm(ModelForm):
-    class Meta:
-        model = Avto
-        fields = ["description", "date"]
         
