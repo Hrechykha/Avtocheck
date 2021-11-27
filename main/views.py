@@ -69,8 +69,8 @@ def display_username(request):
 
 def search(request):
     avtos = None
-    if request.GET.get('search'):
-        search = request.GET.get('search')
+    if request.GET.get('vin'):
+        search = request.GET.get('vin')
         avtos = Avto.objects.filter(vin__exact=search)
     return render(request, 'main/search_results.html', {'avtos': avtos})
 
